@@ -4,7 +4,7 @@
 %define		extensionsdir	%(php-config --extension-dir 2>/dev/null)
 
 Summary:	%{_modname} - Provides file info of FLV files
-Name:		php4-pecl-%{_modname}
+Name:		php-pecl-%{_modname}
 Version:	0.0.4
 Release:	2
 License:	PHP 2.02
@@ -17,6 +17,7 @@ BuildRequires:	php-devel >= 4:5.0
 BuildRequires:	rpmbuild(macros) >= 1.254
 %{?requires_php_extension}
 Requires:	%{_sysconfdir}/conf.d
+Provides:	php(%{_modname})
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
