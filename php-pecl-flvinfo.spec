@@ -11,6 +11,7 @@ License:	PHP 2.02
 Group:		Development/Languages/PHP
 Source0:	%{_modname}-%{version}.tar.bz2
 # Source0-md5:	8472916c3465f92eec9437e74495eb9e
+Patch0:		flvinfo-lib64.patch
 BuildRequires:	ffmpeg-devel
 BuildRequires:	php-devel >= 4:5.0
 BuildRequires:	rpmbuild(macros) >= 1.254
@@ -26,6 +27,9 @@ In PECL status of this extension is: %{_status}.
 
 %prep
 %setup -q -n %{_modname}-%{version}
+%if "%{_lib}" != "lib"
+%patch0 -p1
+%endif
 
 %build
 phpize
