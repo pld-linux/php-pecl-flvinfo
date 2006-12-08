@@ -5,14 +5,14 @@
 
 Summary:	%{_modname} - Provides file info of FLV files
 Name:		php-pecl-%{_modname}
-Version:	0.0.4
-Release:	2
+Version:	0.0.5
+Release:	1
 License:	PHP 2.02
 Group:		Development/Languages/PHP
 Source0:	%{_modname}-%{version}.tar.bz2
-# Source0-md5:	8472916c3465f92eec9437e74495eb9e
+# Source0-md5:	8dde1cd808f1e28332a8f5bb48741056
 Patch0:		flvinfo-lib64.patch
-BuildRequires:	ffmpeg-devel
+BuildRequires:	ffmpeg-devel >= 0.4.9-3.20061204.1.3
 BuildRequires:	php-devel >= 4:5.0
 BuildRequires:	rpmbuild(macros) >= 1.254
 %{?requires_php_extension}
