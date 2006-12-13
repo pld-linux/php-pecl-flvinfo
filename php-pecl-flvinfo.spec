@@ -6,7 +6,7 @@
 Summary:	%{_modname} - Provides file info of FLV files
 Name:		php-pecl-%{_modname}
 Version:	0.0.5
-Release:	1
+Release:	2
 License:	PHP 2.02
 Group:		Development/Languages/PHP
 Source0:	%{_modname}-%{version}.tar.bz2
@@ -25,6 +25,13 @@ This extension provides information about FLV video dimensions. It
 uses libavformat from ffmpeg to do so.
 
 In PECL status of this extension is: %{_status}.
+
+%package -n flvinfo
+Summary:	flvinfo
+Group:		Applications
+
+%description -n flvinfo
+flvinfo program.
 
 %prep
 %setup -q -n %{_modname}-%{version}
@@ -69,4 +76,7 @@ fi
 %doc {CREDITS,EXPERIMENTAL}
 %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/conf.d/%{_modname}.ini
 %attr(755,root,root) %{extensionsdir}/%{_modname}.so
+
+%files -n flvinfo
+%defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/flvinfo
