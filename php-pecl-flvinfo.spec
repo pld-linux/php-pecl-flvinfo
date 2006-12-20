@@ -4,12 +4,12 @@
 %define		extensionsdir	%(php-config --extension-dir 2>/dev/null)
 Summary:	%{_modname} - Provides file info of FLV files
 Name:		php-pecl-%{_modname}
-Version:	0.0.5
-Release:	3
+Version:	0.0.6
+Release:	1
 License:	PHP 2.02
 Group:		Development/Languages/PHP
 Source0:	%{_modname}-%{version}.tar.bz2
-# Source0-md5:	8dde1cd808f1e28332a8f5bb48741056
+# Source0-md5:	1ac00465d8890f328063db548169f821
 Patch0:		flvinfo-lib64.patch
 BuildRequires:	ffmpeg-devel >= 0.4.9-3.20061204.1.3
 BuildRequires:	php-devel >= 4:5.0
