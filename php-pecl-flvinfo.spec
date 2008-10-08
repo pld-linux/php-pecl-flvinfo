@@ -8,8 +8,6 @@ Version:	0.0.6
 Release:	2
 License:	PHP 2.02
 Group:		Development/Languages/PHP
-Source0:	%{_modname}-%{version}.tar.bz2
-# Source0-md5:	1ac00465d8890f328063db548169f821
 Patch0:		flvinfo-lib64.patch
 BuildRequires:	ffmpeg-devel >= 0.4.9-3.20061204.1.3
 BuildRequires:	php-devel >= 4:5.0
@@ -18,6 +16,9 @@ BuildRequires:	rpmbuild(macros) >= 1.344
 Requires:	php-common >= 4:5.0.4
 Provides:	php(%{_modname})
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+
+%define		_cvsroot	:ext:cvs.delfi.ee:/usr/local/cvs
+%define		_cvsmodule	php/ext/flvinfo
 
 %description
 This extension provides information about FLV video dimensions. It
@@ -33,7 +34,10 @@ Group:		Applications
 flvinfo program.
 
 %prep
-%setup -q -n %{_modname}-%{version}
+%setup -qcT
+cd ..
+cvs -d %{_cvsroot} co %{?_cvstag:-r %{_cvstag}} -d %{name}-%{version} -P %{_cvsmodule}
+cd -
 %if "%{_lib}" != "lib"
 %patch0 -p1
 %endif
