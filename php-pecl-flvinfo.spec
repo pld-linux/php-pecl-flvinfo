@@ -1,11 +1,9 @@
-%define		_modname	flvinfo
-%define		_status		stable
-%define		_sysconfdir	/etc/php
-%define		extensionsdir	%(php-config --extension-dir 2>/dev/null)
-Summary:	%{_modname} - Provides file info of FLV files
-Name:		php-pecl-%{_modname}
+%define		modname	flvinfo
+%define		status	stable
+Summary:	%{modname} - Provides file info of FLV files
+Name:		php-pecl-%{modname}
 Version:	0.0.6
-Release:	2
+Release:	4
 License:	PHP 2.02
 Group:		Development/Languages/PHP
 Patch0:		flvinfo-lib64.patch
@@ -14,7 +12,7 @@ BuildRequires:	php-devel >= 4:5.0
 BuildRequires:	rpmbuild(macros) >= 1.344
 %{?requires_php_extension}
 Requires:	php-common >= 4:5.0.4
-Provides:	php(%{_modname})
+Provides:	php(%{modname})
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_cvsroot	:ext:cvs.delfi.ee:/usr/local/cvs
@@ -24,7 +22,7 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 This extension provides information about FLV video dimensions. It
 uses libavformat from ffmpeg to do so.
 
-In PECL status of this extension is: %{_status}.
+In PECL status of this extension is: %{status}.
 
 %package -n flvinfo
 Summary:	flvinfo
@@ -55,9 +53,9 @@ install -d $RPM_BUILD_ROOT{%{_bindir},%{php_sysconfdir}/conf.d}
 %{__make} install \
 	INSTALL_ROOT=$RPM_BUILD_ROOT \
 	EXTENSION_DIR=%{php_extensiondir}
-cat <<'EOF' > $RPM_BUILD_ROOT%{php_sysconfdir}/conf.d/%{_modname}.ini
-; Enable %{_modname} extension module
-extension=%{_modname}.so
+cat <<'EOF' > $RPM_BUILD_ROOT%{php_sysconfdir}/conf.d/%{modname}.ini
+; Enable %{modname} extension module
+extension=%{modname}.so
 EOF
 install flvinfo $RPM_BUILD_ROOT%{_bindir}
 
@@ -75,8 +73,8 @@ fi
 %files
 %defattr(644,root,root,755)
 %doc {CREDITS,EXPERIMENTAL}
-%config(noreplace) %verify(not md5 mtime size) %{php_sysconfdir}/conf.d/%{_modname}.ini
-%attr(755,root,root) %{php_extensiondir}/%{_modname}.so
+%config(noreplace) %verify(not md5 mtime size) %{php_sysconfdir}/conf.d/%{modname}.ini
+%attr(755,root,root) %{php_extensiondir}/%{modname}.so
 
 %files -n flvinfo
 %defattr(644,root,root,755)
