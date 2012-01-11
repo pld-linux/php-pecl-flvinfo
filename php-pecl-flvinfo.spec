@@ -2,8 +2,8 @@
 %define		status	stable
 Summary:	%{modname} - Provides file info of FLV files
 Name:		php-pecl-%{modname}
-Version:	0.0.6
-Release:	4
+Version:	0.5
+Release:	1
 License:	PHP 2.02
 Group:		Development/Languages/PHP
 Patch0:		flvinfo-lib64.patch
@@ -51,13 +51,14 @@ rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_bindir},%{php_sysconfdir}/conf.d}
 
 %{__make} install \
-	INSTALL_ROOT=$RPM_BUILD_ROOT \
-	EXTENSION_DIR=%{php_extensiondir}
+	EXTENSION_DIR=%{php_extensiondir} \
+	INSTALL_ROOT=$RPM_BUILD_ROOT
+
 cat <<'EOF' > $RPM_BUILD_ROOT%{php_sysconfdir}/conf.d/%{modname}.ini
 ; Enable %{modname} extension module
 extension=%{modname}.so
 EOF
-install flvinfo $RPM_BUILD_ROOT%{_bindir}
+install -p flvinfo $RPM_BUILD_ROOT%{_bindir}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
