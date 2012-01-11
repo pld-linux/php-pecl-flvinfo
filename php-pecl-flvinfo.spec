@@ -6,7 +6,6 @@ Version:	0.5
 Release:	1
 License:	PHP 2.02
 Group:		Development/Languages/PHP
-Patch0:		flvinfo-lib64.patch
 BuildRequires:	ffmpeg-devel >= 0.4.9-3.20061204.1.3
 BuildRequires:	php-devel >= 4:5.0
 BuildRequires:	rpmbuild(macros) >= 1.344
@@ -36,9 +35,6 @@ flvinfo program.
 cd ..
 cvs -d %{_cvsroot} co %{?_cvstag:-r %{_cvstag}} -d %{name}-%{version} -P %{_cvsmodule}
 cd -
-%if "%{_lib}" != "lib"
-%patch0 -p1
-%endif
 
 %build
 phpize
