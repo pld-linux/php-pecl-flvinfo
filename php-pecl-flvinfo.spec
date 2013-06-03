@@ -8,6 +8,7 @@ License:	PHP 2.02
 Group:		Development/Languages/PHP
 Source0:	flvinfo-%{version}.tar.bz2
 # Source0-md5:	5fb71336eac15cf31f840d12d289f6f9
+URL:		https://github.com/glensc/php-pecl-flvinfo
 BuildRequires:	ffmpeg-devel >= 0.4.9-3.20061204.1.3
 BuildRequires:	php-devel >= 4:5.0
 BuildRequires:	rpmbuild(macros) >= 1.344
