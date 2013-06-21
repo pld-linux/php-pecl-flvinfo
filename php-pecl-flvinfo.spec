@@ -1,7 +1,8 @@
+%define		php_name	php%{?php_suffix}
 %define		modname	flvinfo
 %define		status	stable
 Summary:	%{modname} - Provides file info of FLV files
-Name:		php-pecl-%{modname}
+Name:		%{php_name}-pecl-%{modname}
 Version:	0.5
 Release:	1
 License:	PHP 2.02
@@ -9,9 +10,9 @@ Group:		Development/Languages/PHP
 Source0:	flvinfo-%{version}.tar.bz2
 # Source0-md5:	5fb71336eac15cf31f840d12d289f6f9
 URL:		https://github.com/glensc/php-pecl-flvinfo
+BuildRequires:	%{php_name}-devel >= 4:5.0
 BuildRequires:	ffmpeg-devel >= 0.4.9-3.20061204.1.3
-BuildRequires:	php-devel >= 4:5.0
-BuildRequires:	rpmbuild(macros) >= 1.344
+BuildRequires:	rpmbuild(macros) >= 1.650
 %{?requires_php_extension}
 Requires:	php(core) >= 5.0.4
 Provides:	php(%{modname})
